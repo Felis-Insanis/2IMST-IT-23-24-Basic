@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript3</title>
+    </head>
+    <body>
+        <h1>JavaScript 3</h1>
+        <div>
+            <h2>Oppgave 5-7<br></h2>
+            <form>
+                <select name="enheter" id="enhet" oninput="unitChange()">
+                    <optgroup label="Ascent To Enlightenment">
+                        <option value="celsiusToKelvin">Celsius -> Kelvin</option>
+                        <option value="kelvinToCelsius">Kelvin -> Celsius</option>
+                        <option value="fahrenheitToKelvin">Fahrenheit -> Kelvin</option>
+                        <option value="fahrenheitToCelsius">Fahrenheit -> Celsius</option>
+                    </optgroup>
+                    <optgroup label="Descent Into Stupidity">
+                        <option value="celsiusToFahrenheit">Celsius -> Fahrenheit</option>
+                        <option value="kelvinToFahrenheit">Kelvin -> Fahrenheit</option>
+                    </optgroup>
+                </select>
+                <br>
+                <input name="value" type="number" id="inputValue" oninput="unitChange()">
+                <span name="unitFrom" id="unitFrom"></span>
+                <p id="output"></p>
+            </form>
+        </div>
+        <br>
+        <div>
+            <h2>Farge-sliders</h2>
+            <button style="color: red;" onclick="colorSet('red')">Set to red!</button>
+            <button style="color: green;" onclick="colorSet('green')">Set to green!</button>
+            <button style="color: blue;" onclick="colorSet('blue')">Set to blue!</button>
+            <form>
+                <input name="red" type="range" min="0" max="255" oninput="colorChange()" id="red">
+                <input type="range" min="0" max="255" oninput="colorChange()" id="green">
+                <input type="range" min="0" max="255" oninput="colorChange()" id="blue">
+
+            </form>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
