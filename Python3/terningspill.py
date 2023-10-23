@@ -31,7 +31,6 @@ def startGame() -> str:
         print('\nTHE GAME STARTS\n')
         for player in range(1, nrPlayers):
             print(f'Player {player}\'s turn!')
-            
     else:
         nrDice = int(input('How many dice should be rolled?\n'))
         while typeDice not in range(1, 5):

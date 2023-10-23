@@ -16,15 +16,15 @@ Roman values:
 '''
 import curses # for visuals
 
-decimal: int = 0
+decimal = 0
 '''the raw user input in integer form, if the input actually is decimal'''
 
 symbols = {1000: "M",900: "CM",500: "D",400: "CD",100: "C",90: "XC",50: "L",40: "XL",10: "X",9: "IX",5: "V",4: "IV",1: "I",}
 '''a dictionary for Roman numeric symbols of decimal values'''
 
-def decimalToRoman(decimal, screen) -> str:
+def decimalToRoman(decimal, screen):
     '''converts decimal values to Roman numerals'''
-    if decimal < 0 or decimal > 3999:
+    if -1 < decimal < 3999:
         screen.addstr(0, 0, '')
         roman = ''
         '''the roman number'''
@@ -44,9 +44,9 @@ def romanToDecimal(roman, screen) -> str:
     '''converts Roman numbers to decimal values''' # utvikling senere
     pass
 
-def keyboardInput(screen) -> str:
+def keyboardInput(screen):
     '''responsible for being able to type'''
-    rawInput: str = ''
+    rawInput = ''
     '''the input'''
     while True:
         character = screen.getkey() # records keypress
@@ -68,7 +68,7 @@ stdscr = curses.initscr()
 curses.noecho()
 '''keypresses won't be echoed on screen this way'''
 
-maxY, maxX: int = stdscr.getmaxyx()
+maxY, maxX = stdscr.getmaxyx()
 '''the maximum coordinate on the terminal window, for referential purposes'''
 
 inputBox = stdscr.subwin(3, 14, int(maxY/2)-2, int(maxX/2)-8)
