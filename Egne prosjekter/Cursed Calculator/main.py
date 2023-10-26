@@ -4,26 +4,23 @@ import curses.textpad
 from curses import wrapper
 
 # definitions
-def keyboardInput(screen = curses.initscr()):
+def keyboardInput(screen):
     '''responsible for being able to type'''
     rawInput = ''
+    '''the input'''
     while True:
-        y, x = screen.getyx()
-        character = screen.getkey()
-        if character == "\n":
-            break
-        elif character == "\x7F":
-            try:
-                screen.addstr("\b ")
+        character = screen.getkey() # records keypress
+        if character == "\n": # stopping the recording process
+            return rawInput
+        elif character == "\x7F": # backspace (suprisingly difficult)
+                rawInput = rawInput[:-1]
+                screen.addstr('\b ')
                 screen.addstr('\b')
                 screen.refresh()
-            except:
-                pass
-            rawInput = rawInput[:-1]
-        else:
-            screen.addstr(character)
+        else: # records keypresses and puts them on screen
             rawInput += character
-    return rawInput
+            screen.addstr(character)
+            character = ''
 
 def convertToList(string):
     charlist = []
